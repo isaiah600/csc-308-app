@@ -1,1 +1,1 @@
-# csc-308-app
+# CSC 308 App
