@@ -3,13 +3,13 @@ import React, { useState } from "react";
 function Form(props) {
   const [person, setPerson] = useState({ name: "", job: "" });
 
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setPerson(prev => ({ ...prev, [name]: value }));
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setPerson((p) => ({ ...p, [name]: value }));
   }
 
   function submitForm() {
-    if (!person.name.trim() || !person.job.trim()) return;
+    if (!person.name || !person.job) return;
     props.handleSubmit(person);
     setPerson({ name: "", job: "" });
   }
@@ -17,12 +17,25 @@ function Form(props) {
   return (
     <form>
       <label htmlFor="name">Name</label>
-      <input type="text" name="name" id="name" value={person.name} onChange={handleChange} />
+      <input
+        type="text"
+        name="name"
+        id="name"
+        value={person.name}
+        onChange={handleChange}
+      />
       <label htmlFor="job">Job</label>
-      <input type="text" name="job" id="job" value={person.job} onChange={handleChange} />
+      <input
+        type="text"
+        name="job"
+        id="job"
+        value={person.job}
+        onChange={handleChange}
+      />
       <input type="button" value="Submit" onClick={submitForm} />
     </form>
   );
 }
+
 export default Form;
 
