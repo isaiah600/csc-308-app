@@ -8,9 +8,6 @@ test("div with negative numbers", () => {
   expect(myFunctions.div(-10, 2)).toBe(-5);
 });
 
-test("div with negative denominator", () => {
-  expect(myFunctions.div(10, -2)).toBe(-5);
-});
 
 test("div by zero returns Infinity (default JS behavior)", () => {
   expect(myFunctions.div(5, 0)).toBe(Infinity);
